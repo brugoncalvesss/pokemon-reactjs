@@ -6,7 +6,8 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Homepage from './pages/Homepage';
+import Homepage from './pages/Homepage'
+import PokemonPage from './pages/PokemonPage'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <div className="App">
         <div className="container">
           <Route exact path='/' component={Homepage} />
+          <Route path='/pokemon/:id' component={PokemonPage} />
         </div>
       </div>
     </Router>

@@ -2,16 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const PokemonCard = (props) => {
-
-    const {
-        name
-    } = props
+const PokemonCard = ({name}) => {
 
     const [pokemon, setPokemon] = useState([])
 
     const getPokemon = async (name) => {
-        return await axios.get(
+        await axios.get(
             `https://pokeapi.co/api/v2/pokemon-form/${name}`
         ).then(response => {
             setPokemon(response.data)
@@ -27,23 +23,26 @@ const PokemonCard = (props) => {
 
     return (
         <>
-            <li className="list-group-item">
-                
-                <strong className="me-3">
-                    <small className="small text-muted">#{pokemon.id}</small>
-                </strong>
+            {pokemon ? (
+                <li className="list-group-item">
+                    <strong className="me-3">
+                        <small className="small text-muted">#{pokemon.id}</small>
+                    </strong>
 
-                <Link to={`/pokemon/${pokemon.name}/`}>
-                    {pokemon.name}
-                </Link>
+                    <Link to={`/pokemon/${pokemon.name}/`}>
+                        {pokemon.name}
+                    </Link>
 
-                <img
-                    src={pokemon.sprites.front_default}
-                    className="img-fluid"
-                    alt={pokemon.name}
-                />
-                
-            </li>
+                    <img
+                        src={pokemon.sprites.front_default}
+                        className="img-fluid"
+                        alt={pokemon.name}
+                    />
+                    
+                </li>
+            ) : (
+                <p>Loading...</p>
+            )}
         </>
     )
 }

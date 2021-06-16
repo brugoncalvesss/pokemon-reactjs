@@ -8,8 +8,8 @@ const PokemonList = () => {
     const [pokemons, setPokemons] = useState(null)
 
     const getPokemon = async () => {
-        return await axios.get(
-            'https://pokeapi.co/api/v2/pokemon/?limit=151'
+        await axios.get(
+            'https://pokeapi.co/api/v2/pokemon/?limit=10'
         ).then(response => {
             setPokemons(response.data.results)
         })
