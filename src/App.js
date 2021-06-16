@@ -1,14 +1,22 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import PokemonList from './components/PokemonList'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 
-function App() {
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import Homepage from './pages/Homepage';
+
+const App = () => {
   return (
-    <div className="App">
-      <div className="container">
-        <PokemonList />
+    <Router>
+      <div className="App">
+        <div className="container">
+          <Route exact path='/' component={Homepage} />
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
