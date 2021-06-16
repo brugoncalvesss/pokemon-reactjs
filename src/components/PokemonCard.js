@@ -1,27 +1,39 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const PokemonCard = (props) => {
 
     const {
-        name,
-        url
+        name
     } = props
 
+    const [pokemon, setPokemon] = useState([])
+
+    const getPokemon = async (name) => {
+        return await axios.get(
+            `https://pokeapi.co/api/v2/pokemon-form/${name}`
+        ).then(response => {
+            setPokemon(response.data)
+        })
+        .catch(error => {
+            console.log('error: ', error)
+        })
+    }
+
     useEffect(() => {
-        // TODO: details
-    }, [])
+        getPokemon(name)
+    }, [name])
 
     return (
-        <React.Fragment>
+        <>
             <li className="list-group-item">
-                <strong>{name}</strong>
+                <Link to={`/pokemon/${pokemon.name}/`}>
+                    <strong>{name}</strong>
+                </Link>
             </li>
-        </React.Fragment>
+        </>
     )
-}
-
-const getId = (url) => {
-    return /pokemon\/(\d+)\//.exec(url)[1] ?? 0
 }
 
 export default PokemonCard
