@@ -1,22 +1,38 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import PokemonCard from './PokemonCard'
 
 const PokemonList = () => {
 
     const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/')
-    const [pokemon, setPokemon] = useState(null)
+    const [pokemons, setPokemons] = useState(null)
 
     useEffect(() => {
-        // request
+        axios.get(url)
+            .then(response => {
+                setPokemons(response.data.results)
+            })
+            .catch(error => {
+                console.log('error: ', error)
+            })
     }, [])
 
     return (
-        <ul className="list-group list-group-flush">
-            <PokemonCard id="1" />
-            <PokemonCard id="2" />
-            <PokemonCard id="3" />
-            <PokemonCard id="4" />
-        </ul>
+        <React.Fragment>
+            {pokemons ? (
+            <ul className="list-group list-group-flush">
+                {pokemons.map(pokemon => (
+                    <PokemonCard
+                        key={pokemon.name}
+                        name={pokemon.name}
+                        url={pokemon.url}
+                    />
+                ))}
+            </ul>
+            ) : (
+                <p>Loading...</p>
+            )}
+        </React.Fragment>
     )
 }
 
