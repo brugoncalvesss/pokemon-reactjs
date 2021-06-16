@@ -28,9 +28,21 @@ const PokemonCard = (props) => {
     return (
         <>
             <li className="list-group-item">
+                
+                <strong className="me-3">
+                    <small className="small text-muted">#{pokemon.id}</small>
+                </strong>
+
                 <Link to={`/pokemon/${pokemon.name}/`}>
-                    <strong>{name}</strong>
+                    {pokemon.name}
                 </Link>
+
+                <img
+                    src={pokemon.sprites.front_default}
+                    className="img-fluid"
+                    alt={pokemon.name}
+                />
+                
             </li>
         </>
     )

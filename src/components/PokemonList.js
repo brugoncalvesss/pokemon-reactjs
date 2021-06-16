@@ -9,7 +9,7 @@ const PokemonList = () => {
 
     const getPokemon = async () => {
         return await axios.get(
-            'https://pokeapi.co/api/v2/pokemon/'
+            'https://pokeapi.co/api/v2/pokemon/?limit=151'
         ).then(response => {
             setPokemons(response.data.results)
         })
