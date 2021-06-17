@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import Api from '../services/Api'
 
 const PokemonCard = ({name}) => {
 
     const [pokemon, setPokemon] = useState([])
 
     const getPokemon = async (name) => {
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-form/${name}`)
+        const res = await Api.get(`pokemon-form/${name}`)
         setPokemon(res.data)
     }
 
@@ -17,26 +17,47 @@ const PokemonCard = ({name}) => {
 
     return (
         <>
-            {pokemon ? (
-                <li className="list-group-item">
-                    <strong className="me-3">
-                        <small className="small text-muted">#{pokemon.id}</small>
-                    </strong>
+            <div className="col">
+                {pokemon ? (
+                    <div className="card card-pokemon mb-3">
+                        <div className="card-body">
 
-                    <Link to={`/pokemon/${pokemon.name}/`}>
-                        {pokemon.name}
-                    </Link>
+                            <div className="d-flex align-items-center">
+                                <div className="me-3">
+                                {pokemon.sprites ? (
+                                    <img
+                                        src={pokemon.sprites.front_default}
+                                        className="img-fluid"
+                                        alt={pokemon.name}
+                                    />
+                                ) : (
+                                    <div className="spinner-border"></div>
+                                )}
+                                </div>
+                                <div>
+                                    <div className="mb-2">
+                                        <Link to={`/pokemon/${pokemon.name}/`} className="text-decoration-none text-capitalize">
+                                            <strong>{pokemon.name}</strong>
+                                        </Link>
+                                    </div>
 
-                    <img
-                        src={pokemon.sprites.front_default}
-                        className="img-fluid"
-                        alt={pokemon.name}
-                    />
-                    
-                </li>
-            ) : (
-                <p>Loading...</p>
-            )}
+                                    <div>
+                                        <div className="label small text-muted">
+                                            Type
+                                        </div>
+                                        <div className="text-capitalize">
+                                        {pokemon.id}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                ) : (
+                    <div className="spinner-border"></div>
+                )}
+            </div>
         </>
     )
 }

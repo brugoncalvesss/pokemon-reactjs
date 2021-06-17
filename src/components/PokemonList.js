@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import Api from '../services/Api'
 
 import PokemonCard from './PokemonCard'
 
@@ -8,7 +8,7 @@ const PokemonList = () => {
     const [pokemons, setPokemons] = useState([])
 
     const getPokemon = async () => {
-        const pokemons = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=10')
+        const pokemons = await Api.get('pokemon/?limit=151')
         const {
             results
         } = pokemons.data
@@ -23,7 +23,7 @@ const PokemonList = () => {
     return (
         <>
             {pokemons ? (
-            <ul className="list-group list-group-flush">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
                 {pokemons.map(pokemon => (
                     <PokemonCard
                         key={pokemon.name}
@@ -31,9 +31,9 @@ const PokemonList = () => {
                         url={pokemon.url}
                     />
                 ))}
-            </ul>
+            </div>
             ) : (
-                <p>Loading...</p>
+                <div className="spinner-border"></div>
             )}
         </>
     )
