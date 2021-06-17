@@ -5,21 +5,19 @@ import PokemonCard from './PokemonCard'
 
 const PokemonList = () => {
 
-    const [pokemons, setPokemons] = useState(null)
+    const [pokemons, setPokemons] = useState([])
 
     const getPokemon = async () => {
-        await axios.get(
-            'https://pokeapi.co/api/v2/pokemon/?limit=10'
-        ).then(response => {
-            setPokemons(response.data.results)
-        })
-        .catch(error => {
-            console.log('error: ', error)
-        })
+        const pokemons = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=10')
+        const {
+            results
+        } = pokemons.data
+
+        setPokemons(results)
     }
 
     useEffect(() => {
-        getPokemon();
+        getPokemon()
     }, [])
 
     return (

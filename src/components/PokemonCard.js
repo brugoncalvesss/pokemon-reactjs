@@ -7,14 +7,8 @@ const PokemonCard = ({name}) => {
     const [pokemon, setPokemon] = useState([])
 
     const getPokemon = async (name) => {
-        await axios.get(
-            `https://pokeapi.co/api/v2/pokemon-form/${name}`
-        ).then(response => {
-            setPokemon(response.data)
-        })
-        .catch(error => {
-            console.log('error: ', error)
-        })
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-form/${name}`)
+        setPokemon(res.data)
     }
 
     useEffect(() => {
