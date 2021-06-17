@@ -14,6 +14,150 @@ code {
     monospace;
 }
 
+.text-normal {
+    color: #A8A77A !important;
+}
+
+.bg-normal {
+    background-color: #A8A77A !important;
+}
+
+.text-fire {
+    color: #EE8130 !important;
+}
+
+.bg-fire {
+    background-color: #EE8130 !important;
+}
+
+.text-water {
+    color: #6390F0 !important;
+}
+
+.bg-water {
+    background-color: #6390F0 !important;
+}
+
+.text-electric {
+    color: #F7D02C !important;
+}
+
+.bg-electric {
+    background-color: #F7D02C !important;
+}
+
+.text-grass {
+    color: #7AC74C !important;
+}
+
+.bg-grass {
+    background-color: #7AC74C !important;
+}
+
+.text-ice {
+    color: #96D9D6 !important;
+}
+
+.bg-ice {
+    background-color: #96D9D6 !important;
+}
+
+.text-fighting {
+    color: #C22E28 !important;
+}
+
+.bg-fighting {
+    background-color: #C22E28 !important;
+}
+
+.text-poison {
+    color: #A33EA1 !important;
+}
+
+.bg-poison {
+    background-color: #A33EA1 !important;
+}
+
+.text-ground {
+    color: #E2BF65 !important;
+}
+
+.bg-ground {
+    background-color: #E2BF65 !important;
+}
+
+.text-flying {
+    color: #A98FF3 !important;
+}
+
+.bg-flying {
+    background-color: #A98FF3 !important;
+}
+
+.text-psychic {
+    color: #F95587 !important;
+}
+
+.bg-psychic {
+    background-color: #F95587 !important;
+}
+
+.text-bug {
+    color: #A6B91A !important;
+}
+
+.bg-bug {
+    background-color: #A6B91A !important;
+}
+
+.text-rock {
+    color: #B6A136 !important;
+}
+
+.bg-rock {
+    background-color: #B6A136 !important;
+}
+
+.text-ghost {
+    color: #735797 !important;
+}
+
+.bg-ghost {
+    background-color: #735797 !important;
+}
+
+.text-dragon {
+    color: #6F35FC !important;
+}
+
+.bg-dragon {
+    background-color: #6F35FC !important;
+}
+
+.text-dark {
+    color: #705746 !important;
+}
+
+.bg-dark {
+    background-color: #705746 !important;
+}
+
+.text-steel {
+    color: #B7B7CE !important;
+}
+
+.bg-steel {
+    background-color: #B7B7CE !important;
+}
+
+.text-fairy {
+    color: #D685AD !important;
+}
+
+.bg-fairy {
+    background-color: #D685AD !important;
+}
+
 .card-pokemon {
     border-width: 0;
     border-bottom: 1px solid rgba(231, 234, 243, .7);
