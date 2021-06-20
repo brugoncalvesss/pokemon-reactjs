@@ -9,11 +9,7 @@ const PokemonList = () => {
 
     const getPokemon = async () => {
         const pokemons = await Api.get('pokemon/?limit=151')
-        const {
-            results
-        } = pokemons.data
-
-        setPokemons(results)
+        setPokemons(pokemons.data.results)
     }
 
     useEffect(() => {
