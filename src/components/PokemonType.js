@@ -1,8 +1,8 @@
 import React from 'react'
 
-const PokemonType = (types) => {
+const PokemonType = ({types}) => {
 
-    const typeList = types[0].name
+    const typeItems = Array.prototype.map.call(types, type => type.type.name).join(' ')
 
     return (
         <>
@@ -10,7 +10,7 @@ const PokemonType = (types) => {
                 Type
             </div>
             <div className="text-capitalize">
-                <strong>{typeList}</strong>
+                <strong>{typeItems}</strong>
             </div>
         </>
     )
