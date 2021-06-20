@@ -42,7 +42,11 @@ const PokemonCard = ({name}) => {
                                 </div>
 
                                 <div>
-                                    {/* <PokemonType types={pokemon.types} /> */}
+                                    {pokemon.types ? (
+                                        <PokemonType types={pokemon.types} />
+                                    ) : (
+                                        <div className="spinner-grow spinner-grow-sm text-light"></div>
+                                    )}
                                 </div>
                             </div>
                         </div>
