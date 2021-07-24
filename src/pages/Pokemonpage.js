@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PokemonPage = ({ match }) => {
+const Pokemonpage = ({ match }) => {
 
     const id = match.params.id
 
@@ -11,4 +11,4 @@ const PokemonPage = ({ match }) => {
     )
 }
 
-export default PokemonPage
+export default Pokemonpage

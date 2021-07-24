@@ -4,18 +4,21 @@ import {
   Route
 } from 'react-router-dom'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Feedpage from './pages/Feedpage'
+import Pokemonpage from './pages/Pokemonpage'
 
-import Homepage from './pages/Homepage'
-import PokemonPage from './pages/PokemonPage'
+/**
+ * todo: Replace for styled-components
+ */
+ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = () => {
   return (
     <Router>
       <div className="App">
         <div className="container">
-          <Route exact path='/' component={Homepage} />
-          <Route path='/pokemon/:id' component={PokemonPage} />
+          <Route exact path='/' component={Feedpage} />
+          <Route path='/pokemon/:id' component={Pokemonpage} />
         </div>
       </div>
     </Router>

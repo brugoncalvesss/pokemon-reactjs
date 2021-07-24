@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PokemonType = ({types}) => {
+const Type = ({types}) => {
 
     const typeItems = Array.prototype.map.call(types, type => type.type.name).join(' ')
 
@@ -16,4 +16,4 @@ const PokemonType = ({types}) => {
     )
 }
 
-export default PokemonType
+export default Type
